@@ -1,0 +1,83 @@
+html,body{
+    margin: 0 auto;
+}
+*{
+    box-sizing: border-box;
+}
+.father{
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.knight{
+    margin: 2rem;
+    width: 200px;
+    height: 200px;
+}
+.knight-lifebar{
+    margin: 0.2rem auto;
+    border: 1px solid black;
+    width: 90%;
+    height: 10%;
+}
+.knight-lifebar-progress{
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}
+.knight-image{
+    margin: 0 auto;
+    height: 80%;
+    width: 90%;
+}
+.knight-image img{
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+}
+.dragon{
+    margin: 2rem;
+    width: 200px;
+    height: 200px;
+}
+.dragon-lifebar{
+    margin: 0.2rem auto;
+    border: 1px solid black;
+    width: 90%;
+    height: 10%;
+}
+.dragon-lifebar-progress{
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}
+.dragon-image{
+    margin: 0 auto;
+    height: 80%;
+    width: 90%;
+}
+.dragon-image img{
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+}
+.damage-logs {
+    width: 100%;
+}
+.message-container{
+    width: 100%;
+    height: 200px;
+    text-align: center;
+}
+#button{
+    border: none;
+    background-color:darkblue;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#button:hover{
+    background-color: grey;
+}
