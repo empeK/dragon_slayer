@@ -1,47 +1,118 @@
 $(() => {
+	$('.father').hide()
+	$('.end-screen').hide()
+	var levels = [{
+			dragonLife: 150,
+			dragonHitMax: 5,
+			dragonHitMin: 0
+		},
 
-	$('#button').click(function(){
-		document.querySelector('.message').innerHTML = ""						
-		playGame();
-		$(this).hide()
+		{
+			dragonLife: 200,
+			dragonHitMax: 10,
+			dragonHitMin: 5
+		},
+		{
+			dragonLife: 280,
+			dragonHitMax: 10,
+			dragonHitMin: 15
+		}
+	]
+	var sarvai = [{
+			apsauga: 0.5
+		},
+		{
+			apsauga: 0.7
+		},
+		{
+			apsauga: 0.85
+		}
+	]
+
+	var kardas = [{
+			min: 0,
+			max: 5
+		},
+		{
+			min: 5,
+			max: 10
+		},
+		{
+			min: 10,
+			max: 15
+		}
+	]
+
+	$('.go').on('click', () => {
+
+		playGame(levels[$("#level")[0].selectedIndex], sarvai[$("#armor")[0].selectedIndex], kardas[$("#weapon")[0].selectedIndex])
+		$('.choices').hide()
+		$('.father').show()
 	})
-	function playGame(){
 
-		var slaying = true;
-		var dragonLife = 100
+	$('#button').on('click', () => {
+		$('.end-screen').hide()
+		$('.choices').show()
+	})
+
+	function playGame(level, armor, weapon) {
+		var slaying = true
+		var dragonLife = level.dragonLife
+		var dragonMaxLife = level.dragonLife
+		var knightDefense = armor.apsauga
 		var knightLife = 100
-		$('.dragon-damage-logs').html('HIT: ')										
-		$('.knight-damage-logs').html('HIT: ')					
-		setInterval(() => {
-			var dragonHit = Math.round(Math.random() * 10)
-			var knightHit = Math.round(Math.random() * 10)
-			if(slaying){
+		var knightMaxLife = 100
+		$('.knight-damage-logs').html('HITS: ')
+		$('.dragon-damage-logs').html('HITS: ')
+
+		var game = setInterval(() => {
+			var dragonHit = Math.round(Math.random() * (level.dragonHitMax - level.dragonHitMin)) + level.dragonHitMin
+			var knightHit = Math.round(Math.random() * (weapon.max - weapon.min)) + weapon.min
+			if (slaying) {
 				if (dragonLife <= 0) {
-					$('.message').html("KNIGHT WON")
-					slaying = false;
-					$('#button').show()				
+					$('.message').css('color', 'green')					
+					$('.message').html("YOU WON")
+					reset()
+					clearInterval(game);
 				} else {
 					dragonLife = dragonLife - knightHit
-					$('.dragon-lifebar-progress').css('width', dragonLife + '%')
+					$('.knight-damage-logs').append(knightHit +' ')					
+					$('.dragon-lifebar-progress').css('width', getPercentage(dragonMaxLife, dragonLife) + '%')
 					$('.dragon-lifebar-progress').html(dragonLife)
-					$('.dragon-damage-logs').append(dragonHit + ' ')					
+					
 				}
-				if(knightLife <= 0){
-					$('.message').html("DRAGON WON")
-					slaying = false;
-					$('#button').show()
+				if (knightLife <= 0) {
+					$('.message').css('color', 'red')					
+					$('.message').html("DRAGON ATE YOU")
+					reset()
+					clearInterval(game);
 				} else {
-					knightLife = knightLife - dragonHit
-					$('.knight-lifebar-progress').css('width', knightLife + '%')
+					knightLife = Math.floor(knightLife - ((1 - knightDefense) * dragonHit))
+					$('.dragon-damage-logs').append(dragonHit +' ')					
+					$('.knight-lifebar-progress').css('width', getPercentage(knightMaxLife, knightLife) + '%')
 					$('.knight-lifebar-progress').html(knightLife)
-					$('.knight-damage-logs').append(knightHit + ' ')					
 				}
-				if(knightLife <= 0 && dragonLife <= 0){
-					$('.message').html("THEY BOTH DIED")													
-					slaying = false;
-					$('#button').show()
+				if (knightLife <= 0 && dragonLife <= 0) {
+					$('.message').css('color', 'red')					
+					$('.message').html("YOU BOTH DIED")
+					reset()
+					clearInterval(game);
 				}
 			}
-		}, 250)
+		}, 500)
+
 	}
+	function getPercentage(maxLife, life){
+		var percentage =  life * 100 / maxLife
+		return percentage
+	}
+	function reset() {
+		$('.knight-damage-logs').html('HITS: ')
+		$('.dragon-damage-logs').html('HITS: ')
+		slaying = false;
+		$('.father').hide()
+		$('.list').html("<p> Level: " +$("#level option:selected").text() +"<br>Armor: "+ $("#armor option:selected").text() + "<br>Weapon: " + $("#weapon option:selected").text() + "</p>")
+		$('.end-screen').show()
+	}
+
 })

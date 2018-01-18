@@ -10,22 +10,52 @@
 </head>
 
 <body>
+    <div class="choices">
+        <div class="choice">
+            <h2>Choose level</h2>
+            <select id="level">
+                <option value="easy" selected="selected">EASY</option>
+                <option value="medium">MEDIUM</option>
+                <option value="hard">HARD</option>
+            </select>
+        </div>
+        <div class="choice">
+            <h2>Choose armor</h2>
+            <select id="armor">
+                <option value="mediniai" selected="selected">WOODEN ARMOR</option>
+                <option value="metaliniai">MTEAL ARMOR</option>
+                <option value="deimantiniai">DIAMOND ARMOR</option>
+            </select>
+        </div>
+        <div class="choice">
+            <h2>Choose Weapon</h2>
+            <select id="weapon">
+                <option value="medinis" selected="selected">WOODEN SWORD</option>
+                <option value="metalinis">METAL SWORD</option>
+                <option value="deimantinis">DIAMOND SWORD</option>
+            </select>
+        </div>
+        <button class="go button">GO</button>
+    </div>
     <div class="father">
         <div class="knight">
+            <p style="padding-left: 5%; margin: 0;">HP</p>
             <div class="knight-lifebar">
                 <div class="knight-lifebar-progress">
+                    UKNOWN
                 </div>
             </div>
             <div class="knight-image">
-                <img src="images/knight.jpg">
+                <img src="images/knight.png">
             </div>
             <div class="knight-damage-logs">
             </div>
         </div>
         <div class="dragon">
+            <p style="padding-left: 5%; margin: 0;">HP</p>
             <div class="dragon-lifebar">
                 <div class="dragon-lifebar-progress">
-
+                    UKNOWN
                 </div>
             </div>
             <div class="dragon-image">
@@ -35,9 +65,12 @@
             </div>
         </div>
     </div>
-    <div class="message-container">
-        <h1 class="message"></h1>
-        <button id="button"> PLAY GAME</button>
+    <div class="end-screen">
+        <div class="message-container">
+            <h1 class="message"></h1>
+            <div class="list"></div>
+            <button id="button" class="button">PLAY AGAIN</button>
+        </div>
     </div>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/js.js"></script>
