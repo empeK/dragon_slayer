@@ -18,18 +18,18 @@ $(() => {
 			dragonHitMin: 15
 		}
 	]
-	var sarvai = [{
-			apsauga: 0.5
+	var armor = [{
+			defence: 0.5
 		},
 		{
-			apsauga: 0.7
+			defence: 0.7
 		},
 		{
-			apsauga: 0.85
+			defence: 0.85
 		}
 	]
 
-	var kardas = [{
+	var weapon = [{
 			min: 0,
 			max: 5
 		},
@@ -45,7 +45,7 @@ $(() => {
 
 	$('.go').on('click', () => {
 
-		playGame(levels[$("#level")[0].selectedIndex], sarvai[$("#armor")[0].selectedIndex], kardas[$("#weapon")[0].selectedIndex])
+		playGame(levels[$("#level")[0].selectedIndex], armor[$("#armor")[0].selectedIndex], weapon[$("#weapon")[0].selectedIndex])
 		$('.choices').hide()
 		$('.father').show()
 	})
@@ -59,7 +59,7 @@ $(() => {
 		var slaying = true
 		var dragonLife = level.dragonLife
 		var dragonMaxLife = level.dragonLife
-		var knightDefense = armor.apsauga
+		var knightDefense = armor.defence
 		var knightLife = 100
 		var knightMaxLife = 100
 		$('.knight-damage-logs').html('HITS: ')
