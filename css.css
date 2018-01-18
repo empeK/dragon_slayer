@@ -8,11 +8,16 @@ html,body{
     font-weight: 800;
     letter-spacing: 0.3rem;
 }
+h1{
+    font-family: 'Supermercado One';
+}
 img{
     width: 100%;
 }
-h3{
-    color: white;
+
+.game-header{
+    color: red;
+    font-size: 30px;
 }
 .choices{
     width: 100%;
@@ -31,11 +36,9 @@ h3{
 }
 .choice select{
     width: 100%;
-}
-
-select{
     padding: 1rem;
 }
+
 .go{
     border: none;
     color: white;
@@ -43,18 +46,24 @@ select{
     border-radius: 5px;
     cursor: pointer;
 }
-.father{
+.game{
     margin-top: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.knight{
+.fighter{
     margin: 2rem;
     width: 20%;
     height: 30%;
 }
-.knight-lifebar{
+.image-container{
+    margin: 0 auto;
+    height:60%;
+    width: 60%;
+}
+
+.lifebar-container{
     margin: 0.2rem auto;
     border: 1px solid white;
     width: 90%;
@@ -65,54 +74,28 @@ select{
     height: 100%;
     background-color: green;
 }
-.knight-image{
-    margin: 0 auto;
-    height:60%;
-    width: 60%;
-}
-.knight-image img{
-    margin: 0 auto;
-    height:100%;
-    width: 100%;
-}
-.knight-damage-logs {
-    width: 100%;
-    padding: 5% 5%;
-}
-.dragon{
-    margin: 2rem;
-    width: 20%;
-    height: 30%;
-}
-.dragon-lifebar{
-    margin: 0.2rem auto;
-    border: 1px solid white;
-    width: 90%;
-    height: 10%;
-}
+
 .dragon-lifebar-progress{
     width: 100%;
     height: 100%;
     background-color: red;
 }
-.dragon-image{
-    margin: 0 auto;
-    height:60%;
-    width: 60%;
-}
-.dragon-image img{
-    margin: 0 auto;
-    height:100%;
-    width: 100%;
-}
-.dragon-damage-logs {
+.dragon-damage-logs, .knight-damage-logs {
     width: 100%;
     padding: 5% 5%;
+    min-height: 20%;    
+}
+.dragon-damage-logs p, .knight-damage-logs p{
+    margin:0;
+    padding-left: 5%;
 }
 .message-container{
     width: 100%;
     height: 200px;
     text-align: center;
+}
+.message{
+    font-size: 65px;
 }
 .end-screen{
     width: 100%;
@@ -121,7 +104,7 @@ select{
     justify-content: center;
     align-items: center;
 }
-.button{
+.button, .play-again{
     border: none;
     background-color:yellow;
     color: black;
@@ -130,7 +113,7 @@ select{
     cursor: pointer;
     opacity: 0.7;
 }
-.button:hover{
+.button:hover, .play-again:hover{
     background-color: yellow;
     opacity: 1;
     

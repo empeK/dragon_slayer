@@ -7,58 +7,62 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dragon slayer</title>
     <link rel="stylesheet" href="css.css">
+    <link href="https://fonts.googleapis.com/css?family=Supermercado+One" rel="stylesheet">
 </head>
 
 <body>
     <div class="choices">
+        <div class="game-header">
+            <h1>DRAGON SLAYER</h1>
+        </div>
         <div class="choice">
             <h2>Choose level</h2>
             <select id="level">
-                <option value="easy" selected="selected">EASY</option>
-                <option value="medium">MEDIUM</option>
-                <option value="hard">HARD</option>
+                <option value="easy" selected="selected">-- EASY --</option>
+                <option value="medium">-- MEDIUM --</option>
+                <option value="hard">-- HARD --</option>
             </select>
         </div>
         <div class="choice">
             <h2>Choose armor</h2>
             <select id="armor">
-                <option value="mediniai" selected="selected">WOODEN ARMOR</option>
-                <option value="metaliniai">METAL ARMOR</option>
-                <option value="deimantiniai">DIAMOND ARMOR</option>
+                <option value="wooden armor" selected="selected">-- WOODEN ARMOR --</option>
+                <option value="metal armor">-- METAL ARMOR --</option>
+                <option value="diamond armor">-- DIAMOND ARMOR --</option>
             </select>
         </div>
         <div class="choice">
             <h2>Choose Weapon</h2>
             <select id="weapon">
-                <option value="medinis" selected="selected">WOODEN SWORD</option>
-                <option value="metalinis">METAL SWORD</option>
-                <option value="deimantinis">DIAMOND SWORD</option>
+                <option value="wooden sword" selected="selected">-- WOODEN SWORD --</option>
+                <option value="metal sword">-- METAL SWORD --</option>
+                <option value="diamond sword">-- DIAMOND SWORD --</option>
             </select>
         </div>
-        <button class="go button">GO</button>
+        <button class="go button">FIGHT</button>
     </div>
-    <div class="father">
-        <div class="knight">
-            <p style="padding-left: 5%; margin: 0;">HP</p>
-            <div class="knight-lifebar">
+    <div class="game">
+        <div class="fighter">
+            <p>HP</p>
+            <div class="lifebar-container">
                 <div class="knight-lifebar-progress">
                     HP
                 </div>
             </div>
-            <div class="knight-image">
+            <div class="image-container">
                 <img src="images/knight.png">
             </div>
             <div class="knight-damage-logs">
             </div>
         </div>
-        <div class="dragon">
-            <p style="padding-left: 5%; margin: 0;">HP</p>
-            <div class="dragon-lifebar">
+        <div class="fighter">
+            <p>HP</p>
+            <div class="lifebar-container">
                 <div class="dragon-lifebar-progress">
                     HP
                 </div>
             </div>
-            <div class="dragon-image">
+            <div class="image-container">
                 <img src="images/dragon.png">
             </div>
             <div class="dragon-damage-logs">
@@ -67,9 +71,9 @@
     </div>
     <div class="end-screen">
         <div class="message-container">
-            <h1 class="message"></h1>
+            <h2 class="message"></h2>
             <div class="list"></div>
-            <button id="button" class="button">PLAY AGAIN</button>
+            <button class="play-again button">PLAY AGAIN</button>
         </div>
     </div>
     <script src="js/jquery-3.2.1.min.js"></script>

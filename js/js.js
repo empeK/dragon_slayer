@@ -1,5 +1,5 @@
 $(() => {
-	$('.father').hide()
+	$('.game').hide()
 	$('.end-screen').hide()
 	var levels = [{
 			dragonLife: 150,
@@ -14,8 +14,8 @@ $(() => {
 		},
 		{
 			dragonLife: 280,
-			dragonHitMax: 10,
-			dragonHitMin: 15
+			dragonHitMax: 15,
+			dragonHitMin: 10
 		}
 	]
 	var armor = [{
@@ -25,7 +25,7 @@ $(() => {
 			defence: 0.7
 		},
 		{
-			defence: 0.85
+			defence: 0.9
 		}
 	]
 
@@ -44,24 +44,24 @@ $(() => {
 	]
 
 	$('.go').on('click', () => {
-
 		playGame(levels[$("#level")[0].selectedIndex], armor[$("#armor")[0].selectedIndex], weapon[$("#weapon")[0].selectedIndex])
 		$('.choices').hide()
-		$('.father').show()
+		$('.game').show()
 	})
 
-	$('#button').on('click', () => {
+	$('.play-again').on('click', () => {
 		$('.end-screen').hide()
 		$('.choices').show()
 	})
 
 	function playGame(level, armor, weapon) {
-		var slaying = true
-		var dragonLife = level.dragonLife
-		var dragonMaxLife = level.dragonLife
-		var knightDefense = armor.defence
-		var knightLife = 100
-		var knightMaxLife = 100
+		var slaying = true,
+			dragonLife = level.dragonLife,
+			dragonMaxLife = level.dragonLife,
+			knightDefense = armor.defence,
+			knightLife = 100,
+			knightMaxLife = 100
+
 		$('.knight-damage-logs').html('HITS: ')
 		$('.dragon-damage-logs').html('HITS: ')
 
@@ -70,30 +70,30 @@ $(() => {
 			var knightHit = Math.round(Math.random() * (weapon.max - weapon.min)) + weapon.min
 			if (slaying) {
 				if (dragonLife <= 0) {
-					$('.message').css('color', 'green')					
+					$('.message').css('color', 'green')
 					$('.message').html("YOU WON")
 					reset()
 					clearInterval(game);
 				} else {
 					dragonLife = dragonLife - knightHit
-					$('.knight-damage-logs').append(knightHit +' ')					
+					$('.knight-damage-logs').append(knightHit + ' ')
 					$('.dragon-lifebar-progress').css('width', getPercentage(dragonMaxLife, dragonLife) + '%')
 					$('.dragon-lifebar-progress').html(dragonLife)
-					
+
 				}
 				if (knightLife <= 0) {
-					$('.message').css('color', 'red')					
+					$('.message').css('color', 'red')
 					$('.message').html("DRAGON ATE YOU")
 					reset()
 					clearInterval(game);
 				} else {
 					knightLife = Math.floor(knightLife - ((1 - knightDefense) * dragonHit))
-					$('.dragon-damage-logs').append(dragonHit +' ')					
+					$('.dragon-damage-logs').append(dragonHit + ' ')
 					$('.knight-lifebar-progress').css('width', getPercentage(knightMaxLife, knightLife) + '%')
 					$('.knight-lifebar-progress').html(knightLife)
 				}
 				if (knightLife <= 0 && dragonLife <= 0) {
-					$('.message').css('color', 'red')					
+					$('.message').css('color', 'red')
 					$('.message').html("YOU BOTH DIED")
 					reset()
 					clearInterval(game);
@@ -102,16 +102,18 @@ $(() => {
 		}, 500)
 
 	}
-	function getPercentage(maxLife, life){
-		var percentage =  life * 100 / maxLife
+
+	function getPercentage(maxLife, life) {
+		var percentage = life * 100 / maxLife
 		return percentage
 	}
+
 	function reset() {
 		$('.knight-damage-logs').html('HITS: ')
 		$('.dragon-damage-logs').html('HITS: ')
 		slaying = false;
-		$('.father').hide()
-		$('.list').html("<p> Level: " +$("#level option:selected").text() +"<br>Armor: "+ $("#armor option:selected").text() + "<br>Weapon: " + $("#weapon option:selected").text() + "</p>")
+		$('.game').hide()
+		$('.list').html("<p> Level: " + $("#level option:selected").text() + "<br>Armor: " + $("#armor option:selected").text() + "<br>Weapon: " + $("#weapon option:selected").text() + "</p>")
 		$('.end-screen').show()
 	}
 
