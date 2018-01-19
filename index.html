@@ -17,46 +17,75 @@
         </div>
         <div class="choice">
             <h2>Choose level</h2>
-            <select id="level">
-                <option value="easy" selected="selected">-- EASY --</option>
-                <option value="medium">-- MEDIUM --</option>
-                <option value="hard">-- HARD --</option>
-            </select>
+            <ul class="levels-container">
+                <li class="level level-active" value="0">EASY</li>
+                <li class="level" value="1">MEDIUM</li>
+                <li class="level" value="2">HARD</li>
+            </ul>
         </div>
         <div class="choice">
             <h2>Choose armor</h2>
-            <select id="armor">
-                <option value="wooden armor" selected="selected">-- WOODEN ARMOR --</option>
-                <option value="metal armor">-- METAL ARMOR --</option>
-                <option value="diamond armor">-- DIAMOND ARMOR --</option>
-            </select>
+            <ul class="armor-container">
+                <li class="armor armor-active" value="0">
+                    <img src="images/wooden_armor.png">
+                </li>
+                <li class="armor" value="1">
+                    <img src="images/iron_armor.png">
+                </li>
+                <li class="armor" value="2">
+                    <img src="images/diamond_armor.png">
+                </li>
+            </ul>
         </div>
         <div class="choice">
             <h2>Choose Weapon</h2>
-            <select id="weapon">
-                <option value="wooden sword" selected="selected">-- WOODEN SWORD --</option>
-                <option value="metal sword">-- METAL SWORD --</option>
-                <option value="diamond sword">-- DIAMOND SWORD --</option>
-            </select>
+            <ul class="weapon-container">
+                <li class="weapon weapon-active" value="0">
+                    <img src="images/wooden_sword.png">
+                </li>
+                <li class="weapon" value="1">
+                    <img src="images/iron_sword.png">
+                </li>
+                <li class="weapon" value="2">
+                    <img src="images/diamond_sword.png">
+                </li>
+            </ul>
         </div>
         <button class="go button">FIGHT</button>
     </div>
     <div class="game">
         <div class="fighter">
-            <p>HP</p>
+            <div class="hp">
+                HP
+            </div>
+            <div class="knight-hit-logs">
+                </div>
+                <div class="knight-damage-logs">
+                </div>
             <div class="lifebar-container">
                 <div class="knight-lifebar-progress">
                     HP
                 </div>
             </div>
             <div class="image-container">
-                <img src="images/knight.png">
-            </div>
-            <div class="knight-damage-logs">
+
+                <div class="man-sword">
+                    <img src="images/wooden_sword.png">
+                </div>
+                <div class="man-armor">
+                    <img src="images/wooden_armor.png">
+                </div>
+                <img src="images/man.png">
             </div>
         </div>
         <div class="fighter">
-            <p>HP</p>
+            <div class="hp">
+                HP
+            </div>
+            <div class="dragon-hit-logs">
+                </div>
+                <div class="dragon-damage-logs">
+                </div>
             <div class="lifebar-container">
                 <div class="dragon-lifebar-progress">
                     HP
@@ -65,14 +94,12 @@
             <div class="image-container">
                 <img src="images/dragon.png">
             </div>
-            <div class="dragon-damage-logs">
-            </div>
         </div>
     </div>
     <div class="end-screen">
         <div class="message-container">
             <h2 class="message"></h2>
-            <div class="list"></div>
+            <div class="list"> <span>EASY</span> <img src="images/wooden_armor.png" alt=""><img src="images/wooden_sword.png" alt=""></div>
             <button class="play-again button">PLAY AGAIN</button>
         </div>
     </div>

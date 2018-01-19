@@ -11,14 +11,43 @@ html,body{
 h1{
     font-family: 'Supermercado One';
 }
+h2{
+    color: lawngreen;
+}
+.levels-container, .armor-container, .weapon-container{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+}
+.level, .armor, .weapon{
+    padding: 10px;
+    cursor: pointer;   
+}
+.level-active, .armor-active, .weapon-active{
+    background-color: yellow;
+    color: black;
+    border-radius: 10px;
+}
+
+.armor img, .weapon img{
+    width: 50px;
+    height: 50px;
+}
 img{
     width: 100%;
 }
-
+.game{
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
 .game-header{
     color: red;
     font-size: 30px;
 }
+
 .choices{
     width: 100%;
     height: 100vh;
@@ -46,27 +75,36 @@ img{
     border-radius: 5px;
     cursor: pointer;
 }
-.game{
-    margin-top: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .fighter{
     margin: 2rem;
     width: 20%;
     height: 30%;
 }
+.fighter p {
+    margin: 0;
+}
 .image-container{
+    position: relative;
     margin: 0 auto;
     height:60%;
     width: 60%;
 }
-
+.man-sword{
+    position: absolute;
+    width: 50%;
+    top: 20%;
+    right: -40%;
+}
+.man-armor{
+    position: absolute;
+    width: 80%;
+    top: 15%;
+    right: 10%;
+}
 .lifebar-container{
     margin: 0.2rem auto;
     border: 1px solid white;
-    width: 90%;
+    width: 100%;
     height: 10%;
 }
 .knight-lifebar-progress{
@@ -80,14 +118,17 @@ img{
     height: 100%;
     background-color: red;
 }
-.dragon-damage-logs, .knight-damage-logs {
-    width: 100%;
-    padding: 5% 5%;
-    min-height: 20%;    
+.hp{
+    color: yellow;
 }
-.dragon-damage-logs p, .knight-damage-logs p{
-    margin:0;
-    padding-left: 5%;
+.knight-damage-logs, .knight-hit-logs, .hp, .dragon-damage-logs, .dragon-hit-logs{
+    display: inline;
+}
+.knight-damage-logs, .dragon-damage-logs {
+    color: red;
+}
+ .knight-hit-logs, .dragon-hit-logs {
+    color: green;
 }
 .message-container{
     width: 100%;
@@ -104,6 +145,9 @@ img{
     justify-content: center;
     align-items: center;
 }
+.end-screen h2{
+    margin: 0;
+}
 .button, .play-again{
     border: none;
     background-color:yellow;
@@ -117,4 +161,42 @@ img{
     background-color: yellow;
     opacity: 1;
     
+}
+.list{
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.list img{
+    width: 5%;
+    margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+    .choices{
+        justify-content: center;
+        text-align: center; 
+    }
+    .choice{
+        display: flex;
+        width: 100%;
+        height: 30%;
+        flex-direction: column;
+        justify-content: center;
+    }
+    h2{
+        margin: 0;
+    }
+    h1{
+        margin-bottom: 0.5rem;
+    }
+    li{
+        height: 100%;
+    }
+    .list img{
+        width: 20%;
+        margin: 1rem 0;
+    }
 }
