@@ -134,7 +134,7 @@ $(function () {
 					clearInterval(game);
 				}
 			}
-		}, 500)
+		}, 750)
 
 	}
 
