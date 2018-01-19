@@ -3,6 +3,7 @@ html,body{
     background-color: #1a2930;
     color: white;
 }
+
 *{
     box-sizing: border-box;
     font-weight: 800;
@@ -42,6 +43,10 @@ img{
     display: flex;
     justify-content: center;
     align-items: stretch;
+}
+.heading{
+    width: 100%; 
+    text-align: center;
 }
 .game-header{
     color: red;
