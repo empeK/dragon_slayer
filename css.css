@@ -88,11 +88,15 @@ img{
 .fighter p {
     margin: 0;
 }
-.image-container{
+.image-container, .dragon-image-container{
     position: relative;
     margin: 0 auto;
     height:60%;
     width: 60%;
+}
+.dragon-image-container:hover{
+    cursor: pointer;
+
 }
 .man-sword{
     position: absolute;
@@ -126,14 +130,18 @@ img{
 .hp{
     color: yellow;
 }
-.knight-damage-logs, .knight-hit-logs, .hp, .dragon-damage-logs, .dragon-hit-logs{
-    display: inline;
+.dragon-damage-logs, .knight-damage-logs{
+    position: absolute;
+    top: 45%;
+    right: 40%;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 100%;
+    z-index: 3;
 }
-.knight-damage-logs, .dragon-damage-logs {
-    color: red;
-}
- .knight-hit-logs, .dragon-hit-logs {
-    color: green;
+.knight-damage-logs{
+    top:35%
 }
 .message-container{
     width: 100%;
@@ -190,6 +198,16 @@ img{
         height: 30%;
         flex-direction: column;
         justify-content: center;
+        align-items: stretch;
+        
+    }
+    .game{
+        height: 100vh;
+        align-content: stretch;
+        justify-content: space-between;
+    }
+    .fighter{
+        width: 50%;
     }
     h2{
         margin: 0;
@@ -203,5 +221,9 @@ img{
     .list img{
         width: 20%;
         margin: 1rem 0;
+    }
+    .dragon-damage-logs, .knight-damage-logs{
+        top: 70%;
+        bottom: 0;
     }
 }
